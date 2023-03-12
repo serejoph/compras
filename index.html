@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Produtos</title>
+</head>
+<body>
+    <form id="formCalcular">
+        <div id="divP1">
+            <p>Produto 1</p>
+            <label for="p1">Preço</label>
+            <input id="p1" name="p1" type="number" step="0.01" oninput="limpar()">
+            <label for="q1">Quantidade</label>
+            <input id="q1" name="q1" type="number" step="0.01" oninput="limpar()">
+        </div>
+        <div id="divP2">
+            <p>Produto 2</p>
+            <label for="p2">Preço</label>
+            <input id="p2" name="p2" type="number" step="0.01" oninput="limpar()">
+            <label for="q1">Quantidade</label>
+            <input id="q2" name="q2" type="number" step="0.01" oninput="limpar()">
+        </div>
+        <button id="calcular" type="submit">Calcular</button>
+    </form>    
+</body>
+<script>
+        let $ = document.querySelector.bind(document);
+        function limpar(){
+            $('#divP1').style.backgroundColor='white'
+            $('#divP2').style.backgroundColor='white'
+        }
+       
+        $('#formCalcular').addEventListener('submit', function(event){
+        event.preventDefault();
+        let m1 = $('#p1').value/$('#q1').value;
+        let m2 = $('#p2').value/$('#q2').value;
+        if(m2>m1){
+            $('#divP1').style.backgroundColor = 'green';
+            $('#divP2').style.backgroundColor = 'white';
+        } else if(m1>m2){
+            $('#divP2').style.backgroundColor = 'green';
+            $('#divP1').style.backgroundColor = 'white';
+        } else{
+            $('#divP2').style.backgroundColor = 'yellow';
+            $('#divP1').style.backgroundColor = 'yellow';
+        }
+    })
+
+
+
+</script>
+</html>
